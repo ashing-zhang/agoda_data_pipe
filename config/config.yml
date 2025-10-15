@@ -1,0 +1,43 @@
+# 环境配置
+environment:
+  current: "development"  # production 或 development
+
+# 数据库配置
+database:
+  table_name: "agoda_source_data" # ods.agoda_source_data
+  
+  # 生产环境配置
+  production:
+    host: "gp-wz91nm4dnc7vgx9c2-master.gpdb.rds.aliyuncs.com"
+    dbname: "huizhi_dwh"
+    user: "collect_user"
+    password: "AcY8YwriZjer6G4k"
+    port: 5432
+    client_encoding: "UTF8"
+  
+  # 开发环境配置
+  development:
+    host: "localhost"
+    dbname: "room_match"
+    user: "postgres"
+    password: "huizhi"
+    port: 5432
+    client_encoding: "UTF8"
+
+# 应用配置
+app:
+  batch_size: 100
+  log_level: "INFO"
+  
+  # 连接池配置
+  connection_pool:
+    min_connections: 2
+    max_connections: 10
+    connection_timeout: 30
+    idle_timeout: 300
+    
+  # 多线程配置
+  threading:
+    max_workers: 4
+    chunk_size: 1000
+    enable_threading: false  # 默认关闭多线程
